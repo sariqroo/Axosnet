@@ -1,0 +1,33 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" [value]="service.formData.id" />
+    <div class="form-group">
+        <label>Proveedor</label>
+        <input class="form-control form-control-lg" placeholder="Proveedor" name="proveedor"
+            #proveedor="ngModel" [(ngModel)]="service.formData.proveedor">
+    </div>
+    <div class="form-group">
+        <label>Monto</label>
+        <input class="form-control form-control-lg" placeholder="Monto" name="monto"
+            #cardNumber="ngModel" [(ngModel)]="service.formData.monto">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Moneda</label>
+            <input type="text" class="form-control form-control-lg" placeholder="Moneda" name="moneda"
+                #securityCode="ngModel" [(ngModel)]="service.formData.moneda">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Fecha</label>
+            <input class="form-control form-control-lg" placeholder="dd/mm/yyyy" name="fecha"
+                #expirationDate="ngModel" [(ngModel)]="service.formData.fecha">
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Comentario</label>
+        <input class="form-control form-control-lg" placeholder="Comentario" name="comentario"
+            #cardNumber="ngModel" [(ngModel)]="service.formData.comentario">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">Guardar</button>
+    </div>
+</form>

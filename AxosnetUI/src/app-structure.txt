@@ -1,0 +1,14 @@
+src
++--- app
+    +-- recibos
+        -- recibos.components.ts|.html|.css
+        +-- recibo-form
+            --recibo-form.components.ts|.html|.css
+
+    +-- shared
+        --recibo.service.ts
+        --recibo.model.ts
+    
+    --app.module.ts
+
+--index.html (cdn path for bootstrap & fa icons)

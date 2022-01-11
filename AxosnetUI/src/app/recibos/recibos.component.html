@@ -1,0 +1,35 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">Registro de Recibos</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <app-recibo-form></app-recibo-form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Proveedor</th>
+                    <th>Monto</th>
+                    <th>Moneda</th>
+                    <th>Fecha</th>
+                    <th>Comentario</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of service.list">
+                    <td (click)="populateForm(pd)">{{pd.proveedor}}</td>
+                    <td (click)="populateForm(pd)">{{pd.monto}}</td>
+                    <td (click)="populateForm(pd)">{{pd.moneda}}</td>
+                    <td (click)="populateForm(pd)">{{pd.fecha}}</td>
+                    <td (click)="populateForm(pd)">{{pd.comentario}}</td>
+                    <td>
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.id)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
