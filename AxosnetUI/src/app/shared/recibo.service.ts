@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { Recibo } from './recibo.model';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +26,10 @@ export class ReciboService {
   }
 
   refreshList(){
-    this.http.get(this.baseURL)
-      .toPromise()
-      .then(res =>this.list = res as Recibo[]);
+   let header = new HttpHeaders()
+   .set('Type-content', 'aplication/json')
+
+    this.http.get(this.baseURL,{ headers: header}).subscribe(res => this.list = res as Recibo[]);
   }
+
 }

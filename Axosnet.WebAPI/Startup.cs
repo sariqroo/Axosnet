@@ -35,7 +35,7 @@ namespace Axosnet.WebAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Axosnet.WebAPI", Version = "v1" });
             });
 
-           services.AddDbContext<ReciboContext>(options=> options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddDbContext<ReciboContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +47,11 @@ namespace Axosnet.WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Axosnet.WebAPI v1"));
             }
+
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
