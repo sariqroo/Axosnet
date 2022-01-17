@@ -1,4 +1,5 @@
-﻿using Axosnet.WebAPI.Models;
+﻿using Axosnet.WebAPI.Data;
+using Axosnet.WebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Axosnet.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[Controller]")]
     [ApiController]
     public class ReciboApiController : ControllerBase
     {

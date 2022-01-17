@@ -1,21 +1,17 @@
 import { Component } from '@angular/core';
-//import { ReciboService } from './shared/recibo.service';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
+import { AccountService } from 'src/app/shared';
+import { User } from 'src/app/models';
+
+@Component({ selector: 'app', templateUrl: 'app.component.html' })
 export class AppComponent {
-  title = 'Axosnet.UI';
+    user: User;
 
-  /*
-  constructor(
-    private recibo: ReciboService
-  ){
-      this.recibo.refreshList().subscribe(resp => {
-        console.log(resp)
-      });
-  }
-*/
+    constructor(private accountService: AccountService) {
+        this.accountService.user.subscribe(x => this.user = x);
+    }
+
+    logout() {
+        this.accountService.logout();
+    }
 }

@@ -4,14 +4,16 @@ using Axosnet.WebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Axosnet.WebAPI.Migrations
 {
     [DbContext(typeof(ReciboContext))]
-    partial class ReciboContextModelSnapshot : ModelSnapshot
+    [Migration("20220116192159_Recibos")]
+    partial class Recibos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,19 +29,19 @@ namespace Axosnet.WebAPI.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Comentario")
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Moneda")
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Monto")
-                        .HasColumnType("decimal(10,2)");
+                        .HasColumnType("float");
 
                     b.Property<string>("Proveedor")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
